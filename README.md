@@ -98,9 +98,6 @@ withStyles(options)(Component, componentOptions)
 - ```plugins?: Array<(style: { [property: string]: any }, type: string, renderer: any, props?: { [key: string]: any }) => { [property: string]: any }>```  
 Plugins for further style transformations. The plugin API is compatible with most [Fela](http://fela.js.org/#) plugins, e.g. [```fela-plugin-prefixer```](https://github.com/rofrischmann/fela/tree/master/packages/fela-plugin-prefixer)
 
-- ```renderer: Registry```  
-A registry instance the component's styles will be mounted to. Defaults to a global ```Renderer``` instance
-
 - ```shouldStylesUpdate: <Props>(props: Props, nextProps: Props) => boolean```  
 Used to check whether styles should to be rerendered. Defaults to a shallow comparison of next and current props
 
