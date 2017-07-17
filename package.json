@@ -1,0 +1,79 @@
+{
+  "name": "react-typestyle-inline",
+  "version": "0.2.4",
+  "description": "An implementation of the React-TypeStyle API using 100% React inline styles",
+  "keywords": [
+    "react",
+    "inline",
+    "css",
+    "style",
+    "typestyle",
+    "types",
+    "typescript",
+    "js"
+  ],
+  "homepage": "https://github.com/Malpaux/react-typestyle-inline#readme",
+  "bugs": {
+    "url": "https://github.com/Malpaux/react-typestyle-inline/issues"
+  },
+  "license": "BSD-3-Clause",
+  "author": "Malpaux (malpaux.com)",
+  "contributors": [
+    {
+      "name": "Paul Brachmann",
+      "email": "paul.brachmann@malpaux.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Malpaux/react-typestyle-inline.git"
+  },
+  "scripts": {
+    "build": "tsc -p ./tsconfig.prod.json -d",
+    "clean": "rimraf dist",
+    "lint": "tslint --project tsconfig.json",
+    "lint:fix": "tslint --project tsconfig.json --fix",
+    "test": "jest --env=jsdom"
+  },
+  "dependencies": {
+    "react-typestyle": "^0.2.4"
+  },
+  "devDependencies": {
+    "@types/enzyme": "^2.8.2",
+    "@types/jest": "^20.0.2",
+    "@types/react": "^15.0.38",
+    "enzyme": "^2.9.1",
+    "jest": "^20.0.4",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-test-renderer": "^15.6.1",
+    "rimraf": "^2.6.1",
+    "ts-jest": "^20.0.7",
+    "tslint": "^5.5.0",
+    "tslint-config-airbnb": "^5.2.1",
+    "tslint-react": "^3.0.0",
+    "typescript": "^2.4.1"
+  },
+  "peerDependencies": {
+    "react": "^15"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ],
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "roots": [
+      "<rootDir>/src/"
+    ],
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(ts|tsx|js)$",
+    "testPathIgnorePatterns": [
+      "<rootDir>/(build|dist|docs|node_modules)/"
+    ],
+    "testEnvironment": "node"
+  }
+}
