@@ -36,7 +36,7 @@
     "test": "jest --env=jsdom"
   },
   "dependencies": {
-    "react-typestyle": "^0.2.4"
+    "react-typestyle": "^0.2.7"
   },
   "devDependencies": {
     "@types/enzyme": "^2.8.2",
