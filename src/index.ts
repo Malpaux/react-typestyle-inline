@@ -4,10 +4,17 @@
  * @license Copyright (c) 2017 Malpaux IoT All Rights Reserved.
  */
 
+/**
+ * Higher-order component implementing React-Typestyle API for inline styles
+ * @module react-typestyle-inline
+ * @author Paul Brachmann
+ * @license Copyright (c) 2017 Malpaux IoT All Rights Reserved.
+ */
+
 import { dynamicExtend, shallowCompare } from 'react-typestyle/internal/utils';
 export { dynamicExtend, shallowCompare };
 
-import * as types from 'react-typestyle/types';
+import * as types from './types';
 export { types };
 
 import Cache from './internal/cache';

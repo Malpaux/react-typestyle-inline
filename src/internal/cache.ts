@@ -1,6 +1,6 @@
 /**
- * The react-typestyle-inline styles cache
- * @module react-typestyle/internal/renderer
+ * Styles cache
+ * @module react-typestyle-inline/internal/cache
  * @author Paul Brachmann
  * @license Copyright (c) 2017 Malpaux IoT All Rights Reserved.
  */
@@ -20,8 +20,8 @@ class Cache<P> {
   /** Registered static styles */
   protected staticStyles: DynamicSheet<P> = {};
 
-  constructor(options: Options) {
-    this.plugins = options.plugins;
+  constructor(options?: Options) {
+    if (options) this.plugins = options.plugins;
   }
 
   /** Clear all styles in the current cache */
@@ -29,6 +29,9 @@ class Cache<P> {
     // Clear registered dynamic sheets & styles
     this.dynamicSheets = undefined;
     this.dynamicStyles = {};
+
+    // Clear static styles
+    this.staticStyles = {};
 
     return this;
   }

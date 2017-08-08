@@ -1,3 +1,9 @@
+/**
+ * @file Higher-order component test suite
+ * @author Paul Brachmann
+ * @license Copyright (c) 2017 Malpaux IoT All Rights Reserved.
+ */
+
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
@@ -97,13 +103,82 @@ describe('withStyles higher-order component', () => {
         background: '#000',
       },
     });
+
+    expect(component.unmount());
   });
 
-  // TODO: Test custom renderer setups
+  it('should overwrite the input styles', () => {
+    BaseComponent.styles = {
+      div: {
+        position: 'relative',
+      },
+      root: {
+        background: '#000',
+        color: '#fff',
+      },
+    };
 
-  // TODO: Test custom shouldStylesUpdate functions
+    const WrappedComponent = withStyles({
+      shouldStylesUpdate: () => true,
+    })(BaseComponent, { styles: {} });
+
+    const component = shallow(<WrappedComponent />);
+    const styles = component.prop('styles');
+    expect(styles).toEqual({});
+
+    expect(component.unmount());
+  });
+
+  it('should use a custom shouldStylesUpdate function', () => {
+    interface Props {
+      color: string;
+      pos: {
+        x: number,
+        y: number,
+      };
+    }
+
+    BaseComponent.styles = {
+      div: ({ color, pos }: Props) => ({
+        color,
+        position: 'absolute',
+        transform: pos && `translate(${pos.x}px,${pos.y}px)`,
+      }),
+      root: {
+        background: '#000',
+      },
+    };
+
+    const WrappedComponent = withStyles({
+      shouldStylesUpdate: () => false,
+    })(BaseComponent);
+
+    const component = shallow(<WrappedComponent />);
+    const styles = component.prop('styles');
+    expect(styles).toEqual({
+      div: {
+        position: 'absolute',
+      },
+      root: {
+        background: '#000',
+      },
+    });
+
+    const styles2 = component.setProps({
+      color: '#ff0000', pos: { x: 128, y: 0 },
+    }).prop('styles');
+    expect(styles2).toEqual({
+      div: {
+        position: 'absolute',
+      },
+      root: {
+        background: '#000',
+      },
+    });
+    expect(styles2).toBe(styles);
+
+    expect(component.unmount());
+  });
 
   // TODO: Test custom plugins
-
-  // TODO: Test styles overwrite
 });
