@@ -14,7 +14,7 @@
 import { dynamicExtend, shallowCompare } from 'react-typestyle/internal/utils';
 export { dynamicExtend, shallowCompare };
 
-import * as types from './types';
+import * as types from 'react-typestyle/types';
 export { types };
 
 import Cache from './internal/cache';
