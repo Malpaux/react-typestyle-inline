@@ -6,3 +6,5 @@
  */
 
 export * from 'react-typestyle/types';
+
+export interface InlineStyles { [name: string]: { [property: string]: any }; }

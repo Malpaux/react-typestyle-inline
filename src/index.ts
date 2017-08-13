@@ -12,9 +12,13 @@
  */
 
 import { dynamicExtend, shallowCompare } from 'react-typestyle/internal/utils';
-export { dynamicExtend, shallowCompare };
+export { dynamicExtend as extend, shallowCompare };
 
-import * as types from 'react-typestyle/types';
+// Reexport for type declarations
+import { DynamicSheet } from 'react-typestyle/types';
+export { DynamicSheet };
+
+import * as types from './types';
 export { types };
 
 import Cache from './internal/cache';

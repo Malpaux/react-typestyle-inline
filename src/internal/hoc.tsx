@@ -14,12 +14,13 @@ import {
 } from 'react-typestyle/internal/hoc';
 import * as types from 'react-typestyle/types';
 
+import { InlineStyles } from '../types';
 import Cache from './cache';
 
 export { ComponentOptions, InputSheet, StyledStatelessComponent };
 
 export interface InjectedProps {
-  styles: types.InlineStyles;
+  styles: InlineStyles;
 }
 
 export interface Options {
@@ -45,7 +46,7 @@ const hoc = ({ plugins, shouldStylesUpdate }: Options) =>
       public static propTypes = Component.propTypes;
 
       public registry = new Cache<ResultProps>({ plugins }).register(sheet);
-      public styles: types.InlineStyles;
+      public styles: InlineStyles;
 
       /** Handle style sheet attach */
       public componentWillMount() {

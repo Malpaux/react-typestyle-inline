@@ -7,7 +7,9 @@
 
 import { Options } from 'react-typestyle/internal/registry';
 import { processPlugins, processSheet, splitSheet } from 'react-typestyle/internal/utils';
-import { DynamicSheet, InlineStyles, Plugin, SheetGenerator } from 'react-typestyle/types';
+import { DynamicSheet, Plugin, SheetGenerator } from 'react-typestyle/types';
+
+import { InlineStyles } from '../types';
 
 /** The react-typestyle styles cache */
 class Cache<P> {
