@@ -11,6 +11,9 @@
  * @license Copyright (c) 2017 Malpaux IoT All Rights Reserved.
  */
 
+import * as React from 'react';
+export { React as _react };
+
 import { dynamicExtend, shallowCompare } from 'react-typestyle/internal/utils';
 export { dynamicExtend as extend, shallowCompare };
 

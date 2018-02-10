@@ -46,7 +46,7 @@ const hoc = ({ plugins, shouldStylesUpdate }: Options) =>
       public static propTypes = Component.propTypes;
 
       public registry = new Cache<ResultProps>({ plugins }).register(sheet);
-      public styles: InlineStyles;
+      public styles: InlineStyles = {};
 
       /** Handle style sheet attach */
       public componentWillMount() {

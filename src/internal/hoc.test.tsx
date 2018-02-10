@@ -4,7 +4,11 @@
  * @license Copyright (c) 2017 Malpaux IoT All Rights Reserved.
  */
 
-import { shallow } from 'enzyme';
+import * as Enzyme from 'enzyme';
+import * as Adapter from 'enzyme-adapter-react-16';
+
+Enzyme.configure({ adapter: new Adapter() });
+
 import * as React from 'react';
 
 import withStyles, { StyledStatelessComponent } from './hoc';
@@ -21,7 +25,7 @@ describe('withStyles higher-order component', () => {
       shouldStylesUpdate: () => true,
     })(BaseComponent);
 
-    const styles = shallow(<WrappedComponent />).prop('styles');
+    const styles = Enzyme.shallow(<WrappedComponent />).prop('styles');
     expect(styles).toEqual({});
   });
 
@@ -40,7 +44,7 @@ describe('withStyles higher-order component', () => {
       shouldStylesUpdate: () => true,
     })(BaseComponent);
 
-    const component = shallow(<WrappedComponent />);
+    const component = Enzyme.shallow(<WrappedComponent />);
     const styles = component.prop('styles');
     expect(styles).toEqual({
       div: {
@@ -79,7 +83,7 @@ describe('withStyles higher-order component', () => {
       shouldStylesUpdate: () => true,
     })(BaseComponent);
 
-    const component = shallow(<WrappedComponent />);
+    const component = Enzyme.shallow(<WrappedComponent />);
     const styles = component.prop('styles');
     expect(styles).toEqual({
       div: {
@@ -122,7 +126,7 @@ describe('withStyles higher-order component', () => {
       shouldStylesUpdate: () => true,
     })(BaseComponent, { styles: {} });
 
-    const component = shallow(<WrappedComponent />);
+    const component = Enzyme.shallow(<WrappedComponent />);
     const styles = component.prop('styles');
     expect(styles).toEqual({});
 
@@ -153,7 +157,7 @@ describe('withStyles higher-order component', () => {
       shouldStylesUpdate: () => false,
     })(BaseComponent);
 
-    const component = shallow(<WrappedComponent />);
+    const component = Enzyme.shallow(<WrappedComponent />);
     const styles = component.prop('styles');
     expect(styles).toEqual({
       div: {
