@@ -2541,9 +2541,9 @@ react-test-renderer@^16.0.0-0, react-test-renderer@^16.2.0:
     object-assign "^4.1.1"
     prop-types "^15.6.0"
 
-react-typestyle@^0.3.1:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/react-typestyle/-/react-typestyle-0.3.1.tgz#111c8530474f73dacf74a5ebacdbb3676874ee82"
+react-typestyle@^0.3.3:
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/react-typestyle/-/react-typestyle-0.3.3.tgz#c94e420e0a206efd8a8f955ca43e708820c2024f"
   dependencies:
     free-style "^2.5.1"
 

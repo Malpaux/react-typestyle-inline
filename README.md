@@ -87,6 +87,63 @@ class Component extends React.PureComponent {
 export default withStyles()(Component);
 ```
 
+### Stateless Components
+#### TypeScript
+```typescript
+import withStyles, { InjectedProps, StyledStatelessComponent } from 'react-typestyle-inline';
+
+interface Props {
+  name: string;
+  pos: { x: number, y: number };
+  theme: { color: string };
+}
+
+const Component: StyledStatelessComponent<Props> = ({ styles, name }) => (
+  <div style={styles.root}>
+    <button style={styles.button}>{name}</button>
+  </div>
+);
+
+Component.styles = {
+  button: {
+    background: 'transparent',
+    border: 'none',
+  },
+  root: (props) => ({
+    color: props.theme.color,
+    position: 'absolute',
+    transform: `translate(${props.pos.x}px,${props.pos.y}px)`,
+  }),
+};
+
+export default withStyles()<Props>(Component);
+```
+
+#### JavaScript
+```javascript
+import withStyles from 'react-typestyle-inline';
+
+const Component = ({ styles, name }) => (
+  <div style={styles.root}>
+    <button style={styles.button}>{name}</button>
+  </div>
+);
+
+Component.styles = {
+  button: {
+    background: 'transparent',
+    border: 'none',
+  },
+  root: (props) => ({
+    color: props.theme.color,
+    position: 'absolute',
+    transform: `translate(${props.pos.x}px,${props.pos.y}px)`,
+  }),
+};
+
+export default withStyles()(Component);
+```
+
 ### Options
 You can pass in general options and options specific to the wrapped component.
 

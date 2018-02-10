@@ -27,8 +27,14 @@ export { types };
 import Cache from './internal/cache';
 export { Cache };
 
-import hoc, { ComponentOptions, InjectedProps, InputSheet, Options } from './internal/hoc';
-export { ComponentOptions, InjectedProps, InputSheet, Options };
+import hoc, {
+  ComponentOptions,
+  InjectedProps,
+  InputSheet,
+  Options,
+  StyledStatelessComponent,
+} from './internal/hoc';
+export { ComponentOptions, InjectedProps, InputSheet, Options, StyledStatelessComponent };
 
 /** Higher-order component */
 const withStyles = ({
